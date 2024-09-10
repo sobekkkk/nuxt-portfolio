@@ -2,7 +2,7 @@
     <div class="navbar">
         <a href="/"><img src="../public/icons/home.png" /></a>
         <a href="/projects"><img src="../public/icons/layers.png" /></a>
-        <a href=""><img src="../public/icons/padlock.png" /></a>
+        <a href="/writeups"><img src="../public/icons/padlock.png" /></a>
     </div>
 </template>
 
@@ -13,6 +13,7 @@ const router = useRouter;
 
 <style scoped>
 .navbar {
+    z-index: 9000000;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -30,6 +31,7 @@ const router = useRouter;
     border-radius: 50px 50px 50px 50px;
     -webkit-border-radius: 50px 50px 50px 50px;
 }
+
 a {
     size: 0vh;
 }
