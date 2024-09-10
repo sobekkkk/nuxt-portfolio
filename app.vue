@@ -2,7 +2,11 @@
     <NuxtPage />
 </template>
 
-<script></script>
+<script setup>
+useHead({
+    title: "Sobek's portfolio",
+});
+</script>
 
 <style>
 html,
