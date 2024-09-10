@@ -4,7 +4,10 @@
         <h1 class="Title">My Projects</h1>
         <div class="l-container">
             <div v-for="e in data" :key="e.id" class="b-game-card">
-                <div class="b-game-card__cover" :style="{}"></div>
+                <div
+                    class="b-game-card__cover"
+                    :style="{ backgroundImage: 'url(' + e.image + ')' }"
+                ></div>
                 <div class="card-content">
                     <h2>{{ e.name }}</h2>
                     <p>{{ e.description }}</p>
@@ -31,6 +34,14 @@
 import navbar from "../components/navbar.vue";
 import { ref, onMounted } from "vue";
 
+const images = [
+    "/images/hacktoria.jpg",
+    "/images/portfolio.png",
+    "/images/profil.png",
+    "images/sudoku.png",
+    "images/uber.png",
+    "images/weather.png",
+];
 const data = ref([]);
 useHead({
     meta: [{ name: "robots", content: "noindex, nofollow" }],
@@ -40,7 +51,7 @@ onMounted(async () => {
     const response = await fetch("https://api.github.com/users/sobekkkk/repos");
     data.value = await response.json();
     const color = { Java: "#b17215", Markdown: "#a2a1a1", Vue: "#44b581" };
-    data.value.forEach((element) => {
+    data.value.forEach((element, index) => {
         if (element.language === null) {
             element.language = "Markdown";
         }
@@ -53,6 +64,7 @@ onMounted(async () => {
             });
             element.created_at = formattedDate;
         }
+        element.image = images[index % images.length];
     });
 });
 </script>
@@ -116,6 +128,7 @@ body {
     overflow: hidden;
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     background-size: cover;
+    background-position: center;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
     transform-origin: top center;
@@ -123,7 +136,6 @@ body {
     transform: skewX(0.001deg);
     transition: transform 0.35s ease-in-out;
 }
-
 .b-game-card__cover::after {
     display: block;
     content: "";
