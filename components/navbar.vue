@@ -1,15 +1,12 @@
 <template>
     <div class="navbar">
-        <a href="/"><img src="../public/icons/home.png" /></a>
-        <a href="/projects"><img src="../public/icons/layers.png" /></a>
-        <a href="/writeups"><img src="../public/icons/padlock.png" /></a>
+        <NuxtLink to="/"><img src="../public/icons/home.png" /></NuxtLink>
+        <NuxtLink to="/projects"
+            ><img src="../public/icons/layers.png"
+        /></NuxtLink>
+        <NuxtLink to="/"><img src="../public/icons/padlock.png" /></NuxtLink>
     </div>
 </template>
-
-<script setup>
-import { useRouter } from "vue-router";
-const router = useRouter;
-</script>
 
 <style scoped>
 .navbar {
@@ -32,13 +29,8 @@ const router = useRouter;
     -webkit-border-radius: 50px 50px 50px 50px;
 }
 
-a {
-    size: 0vh;
-}
-
 img {
     filter: opacity(0.5) drop-shadow(0 0 0 rgb(224, 223, 223));
-
     height: 3vh;
 }
 </style>
