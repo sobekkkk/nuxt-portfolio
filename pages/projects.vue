@@ -9,11 +9,13 @@
                     :style="{ backgroundImage: 'url(' + e.image + ')' }"
                 ></div>
                 <div class="card-content">
-                    <h2>{{ e.name }}</h2>
-                    <p>{{ e.description }}</p>
-                    <p>{{ e.language }}</p>
-                    <p>{{ e.created_at }}</p>
-                    <p>{{ e.stargazers_count }}</p>
+                    <h2 class="card-title">{{ e.name }}</h2>
+                    <p class="card-text">· {{ e.description }}</p>
+                    <p class="card-text">· {{ e.language }}</p>
+                    <p class="card-text">· {{ e.created_at }}</p>
+                    <p class="last-card-text card-text">
+                        · {{ e.stargazers_count }}
+                    </p>
                     <a
                         v-bind:href="e.clone_url"
                         target="_blank"
@@ -69,6 +71,16 @@ onMounted(async () => {
 });
 </script>
 <style lang="css" scoped>
+@font-face {
+    font-family: Nord;
+    src: url(../public/font/Nord-BlackItalic.woff);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../public/font/Roboto-Mono-regular.woff2);
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -115,7 +127,7 @@ body {
     width: 100%;
     padding-bottom: 150%;
     perspective: 1000px;
-    overflow: hidden; /* Empêche le débordement */
+    overflow: hidden;
 }
 
 .b-game-card__cover {
@@ -197,6 +209,20 @@ body {
     color: white;
     font-family: "Roboto", sans-serif;
     transition: transform 0.3s ease, bottom 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 29vh;
+}
+
+.card-title {
+    font-family: Nord;
+    margin-top: 1vh;
+    padding-bottom: 5vh;
+}
+
+.last-card-text {
+    margin-bottom: -5vh;
 }
 
 .b-game-card:hover .card-content {
