@@ -86,8 +86,8 @@ useHead({
 }
 
 .pp {
-    margin-top: 35vh;
-    width: 8%;
+    margin-top: 32.5vh;
+    width: 15vh;
     border-radius: 50%;
 }
 
@@ -100,19 +100,27 @@ useHead({
 .me h1 {
     color: rgb(228, 228, 230);
     font-family: Nord;
-    margin-top: 1.5vh;
+    margin-top: 4vh;
     font-size: 6vh;
+    transition: all 0.5s ease-in-out;
+}
+
+.me h1:hover {
+    transition: all 0.5s ease-in-out;
+    text-shadow: 4px 4px 0 #acacac;
+    transform: translate(-2px, -2px);
+    letter-spacing: 1vw;
 }
 
 .me p {
-    margin-top: 2vh;
+    margin-top: 1vh;
     font-size: 2.5vh;
     color: rgb(233, 227, 219);
     font-family: Roboto;
 }
 
 .social-media {
-    height: 20vh;
+    height: 15vh;
     width: 20vw;
     display: flex;
     flex-direction: row;
@@ -121,6 +129,15 @@ useHead({
 }
 
 .social-media img {
-    height: 5vh;
+    height: 6vh;
+}
+.social-media a {
+    height: 6vh;
+}
+
+.social-media img,
+a:hover {
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 7vh;
 }
 </style>
